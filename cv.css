@@ -52,3 +52,8 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+
+.icons a:hover,
+.icons a:focus {
+	text-decoration: none;
+}
