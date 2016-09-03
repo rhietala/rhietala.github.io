@@ -1,12 +1,15 @@
-title: Immaculate
+title: Embedded to machine learning
 description: >
-  A beautiful, fast, AMP-compliant Jekyll theme based on Tufte CSS.
-baseurl: "/immaculate"
-url: "https://github.com/siawyoung/immaculate"
+  Setting up a Raspberry Pi sensor environment and teaching myself and the machine with it
+baseurl: ""
+#url: "http://localhost:4000" # for local jekyll
+url: "http://www.hietala.org"
 paginate:	2 # The number of posts to show per page on your homepage
-name: "Lau Siaw Young"
+name: "Risto Hietala"
 markdown: kramdown
 permalink: none
+twitter_username: ristohietal
+github_username: rhietala
 kramdown:
   parse_block_html: true
 gems:
