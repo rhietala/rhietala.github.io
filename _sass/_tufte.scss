@@ -87,13 +87,16 @@ article { position: relative;
 section { padding-top: 1rem;
           padding-bottom: 1rem; }
 
-p, ol, ul, .pagination a, .pagination em, table { font-size: 1.4rem; }
+p, ol, ul, .pagination a, .pagination em, table,
+.page-navigation { font-size: 1.4rem; }
 
-p { line-height: 2rem;
-    margin-top: 1.4rem;
-    margin-bottom: 1.4rem;
-    padding-right: 0;
-    vertical-align: baseline; }
+p, .page-navigation { line-height: 2rem;
+                      margin-top: 1.4rem;
+                      margin-bottom: 1.4rem;
+                      padding-right: 0;
+                      vertical-align: baseline; }
+
+.post-meta { font-size: 1.2rem; }
 
 /* Chapter Epigraphs */
 div.epigraph { margin: 5em 0; }

@@ -10,6 +10,15 @@ layout: default
   </section>
 
   <div>
+    <ul>
+      Posts in this blog:
+    {% for post in site.posts %}
+      <li>{{ post.date | date: "%e.%-m.%Y" }}: <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div>
     {% for post in paginator.posts %}
       <article itemscope itemtype="http://schema.org/BlogPosting" role="article">
 

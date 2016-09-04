@@ -7,13 +7,22 @@ layout: default
   <h2 itemprop="name"><a href="{{ site.baseurl }}{{ post.url }}" itemprop="url">{{ page.title }}</a></h2>
 
   <div class="post-meta">
-    <time datetime="{{ page.date | date_to_long_string }}">{{ page.date | date_to_long_string }}</time>
+    <time datetime="{{ page.date | date: "%F" }}">{{ page.date | date: "%e.%-m.%Y" }}</time>
   </div>
 
   <section>
     {{content}}
   </section>
 
+  <div class="page-navigation">
+  {% if page.previous.url %}
+    Previous: <a class="prev" href="{{page.previous.url}}">{{page.previous.title}}</a>
+  {% endif %}
+  {% if page.next.url %}
+    Next: <a class="next" href="{{page.next.url}}">{{page.next.title}}</a>
+  {% endif %}
+  </div>
+  
     {% include footer.html %}
 
   </div>
