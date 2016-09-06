@@ -73,7 +73,7 @@ middle pin has to be connected there.
 
 4,7 or 10 k&Omega; resistor is used as a
 [pull-up resistor](https://en.wikipedia.org/wiki/Pull-up_resistor) to keep the
-data line singal level in a valid range.
+data line signal level in a valid range.
 
 The part inside the dashed box will be done in breadboard, and connections
 from breadboard to Raspberry Pi will be done with the longer jumper cables
