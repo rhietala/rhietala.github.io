@@ -68,8 +68,8 @@ has its own database file.
 `create_rrd_unless_exists` creates an RRDtool database file unless one exists
 already using [rrdcreate](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html)
 (or its python bindings). The data definition syntax is not simple, but
-first `--step` tells how frequently data is expected, `5m` being once every
-five minutes.
+first `--step` tells how frequently data is expected, `300` seconds being once
+every five minutes.
 
 Then a *data source* (`DS`) called `temp` of type `GAUGE` is created. Gauges
 are for data that is just values which can increase or decrease over time,
@@ -83,7 +83,7 @@ Data is run through a *consolidation function* (`CF`), here `AVERAGE`. Average
 is taken over 10 minutes (`2` data points) and database has space for
 10 years: `525600` of these 10 minute average values, if my math is correct.
 As the name suggests, when this time has passed, the database values will be
-overwritten from the beginning. One 10-year database for one sensor takes 4.1MB
+overwritten from the beginning. This 10-year database for one sensor takes 4.1MB
 of space, so Raspberry wouldn't choke even if there were more than two sensors.
 
     rrdtool.create(
@@ -95,7 +95,7 @@ of space, so Raspberry wouldn't choke even if there were more than two sensors.
 
 Current stable RRDtool version 1.6.0 supports giving these time arguments with
 easier syntax so that you don't have to calculate for example how many 10-minute
-periods are in 10 years. Unfortunately Raspbian Jessie has version 1.4.8 which
+periods there are in 10 years. Unfortunately Raspbian Jessie has version 1.4.8 which
 doesn't.
 
 ### Reading temperature sensor data with Python
@@ -104,12 +104,12 @@ The temperature reading part uses Timo Furrer's
 [w1thermsensor](https://github.com/timofurrer/w1thermsensor)
 python library, which makes the readings really straightforward.
 
-Code loops through all the sensors, creates a RRDtool database for that sensor
+Code loops through all the sensors, creates a RRDtool database for each sensor
 unless it exists, reads the temperature value and writes it to the database
 and prints it to standard output as well.
 
 Writing to database uses
-[rrdupdate](http://oss.oetiker.ch/rrdtool/doc/rrdupdate.en.html), which has
+[rrdupdate](http://oss.oetiker.ch/rrdtool/doc/rrdupdate.en.html), which has a
 relatively easy syntax: first parameter is a timestamp (`N` for now), following
 ones are values. `%.2f` is python syntax for formatting a decimal number as
 a string with two decimals.
@@ -180,5 +180,5 @@ Transferring RRDtool data between nodes would require another blog post.
 XML or JSON with specified time intervals, so that could be used.
 
 Generating graphs is good for simple use cases, but ideally one would want an
-interactive, zoomable graph with tunable parameters in browser. I spent relatively
-lot of time to get the chart above, and are not that satisfied with the result.
+interactive, zoomable graph with tunable parameters in browser. I spent a
+lot of time to get the chart above, and am not that satisfied with the result.
