@@ -73,23 +73,30 @@ five minutes.
 
 Then a *data source* (`DS`) called `temp` of type `GAUGE` is created. Gauges
 are for data that is just values which can increase or decrease over time,
-such as temperature. Next number is the *heartbeat*: how long may pass
+such as temperature. Next number is the *heartbeat*: how many seconds may pass
 without a new value before the data source is regarded as unknown, here
-`15m` for 15 minutes. -100 is the minimum and 100 the maximum value for this
+`900` for 15 minutes. -100 is the minimum and 100 the maximum value for this
 data source.
 
 `RRA` stands for *round robin archive* which is used for storing the read data.
 Data is run through a *consolidation function* (`CF`), here `AVERAGE`. Average
-is taken over 15 minutes and database has space for 10 years (`10y`) of these
-15 minute data points. As the name suggests, when this time has passed, the
-database values will be overwritten from the beginning.
+is taken over 10 minutes (`2` data points) and database has space for
+10 years: `525600` of these 10 minute average values, if my math is correct.
+As the name suggests, when this time has passed, the database values will be
+overwritten from the beginning. One 10-year database for one sensor takes 4.1MB
+of space, so Raspberry wouldn't choke even if there were more than two sensors.
 
     rrdtool.create(
         filename,
-        '--step', '5m',
-        'DS:temp:GAUGE:15m:-100:100',
-        'RRA:AVERAGE:0.5:15m:10y'
+        '--step', '300',
+        'DS:temp:GAUGE:900:-100:100',
+        'RRA:AVERAGE:0.5:2:525600'
     )
+
+Current stable RRDtool version 1.6.0 supports giving these time arguments with
+easier syntax so that you don't have to calculate for example how many 10-minute
+periods are in 10 years. Unfortunately Raspbian Jessie has version 1.4.8 which
+doesn't.
 
 ### Reading temperature sensor data with Python
 
@@ -173,4 +180,5 @@ Transferring RRDtool data between nodes would require another blog post.
 XML or JSON with specified time intervals, so that could be used.
 
 Generating graphs is good for simple use cases, but ideally one would want an
-interactive, zoomable graph with tunable parameters in browser.
+interactive, zoomable graph with tunable parameters in browser. I spent relatively
+lot of time to get the chart above, and are not that satisfied with the result.
