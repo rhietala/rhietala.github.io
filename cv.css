@@ -29,7 +29,11 @@ p {
 .entry {
 	margin-bottom: 0.5em;
 }
-.container {
+.content {
+  margin-left: -15px;
+  padding-left: 15px;
+  margin-right: -15px;
+  padding-right: 15px;
 	background-color: #fff;
 	min-height: 100%;
 	padding-top: 15px;
