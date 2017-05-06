@@ -1,34 +1,42 @@
 h1, h2, h3, h4, h5, h6 {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: "Merriweather", "Georgia", "Times New Roman", Times, serif;
 	line-height: 1.1em;
 	color: #000;
 	margin: 0;
 }
+
 body, p {
 	line-height: 1.5em;
 }
+
 body {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: "Merriweather", "Georgia", "Times New Roman", Times, serif;
 	font-size: 12pt;
 	background-color: #fbfbfb;
+  font-weight: 300;
 }
+
 h1 {
 	font-size: 14pt;
 	text-transform: uppercase;
 	margin-top: 1em;
 	margin-bottom: 0.5em;
 }
+
 h2 {
 	font-size: 12pt;
 	line-height: 1.5em;
 	font-weight: 700;
 }
+
 p {
 	margin: 0;
 }
+
 .entry {
 	margin-bottom: 0.5em;
 }
+
 .content {
   margin-left: -15px;
   padding-left: 15px;
@@ -43,6 +51,7 @@ p {
 
 a {
 	color: #000;
+  text-decoration: underline;
 }
 
 a:hover,
@@ -57,7 +66,11 @@ a:focus {
   outline-offset: -2px;
 }
 
-.icons a:hover,
-.icons a:focus {
+.icons a,
+.icons a {
 	text-decoration: none;
+}
+
+h2 a {
+  text-decoration: none;
 }
