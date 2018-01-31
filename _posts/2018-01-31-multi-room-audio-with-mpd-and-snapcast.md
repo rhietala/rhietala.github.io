@@ -626,7 +626,7 @@ most of the time.
 
 Other than that, the setup works really well.
 
-You can leave questions and comments to [Reddit]().
+You can leave questions and comments to [Reddit](https://www.reddit.com/r/raspberry_pi/comments/7udrdm/multiroom_audio_with_mpd_snapcast_and_raspberry/).
 
 ### More photos
 
