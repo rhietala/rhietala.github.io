@@ -25,6 +25,17 @@ header {
   margin-top: 10px;
 }
 
+blockquote {
+  color: #606060;
+  margin: 0 0 0 -10px;
+  padding-left: 8px;
+  border-left: 2px solid;
+}
+
+blockquote p {
+  width: 33em;
+}
+
 @media (max-width: 850px) {
   pre {
     width: 90%;
