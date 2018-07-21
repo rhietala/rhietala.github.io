@@ -287,4 +287,4 @@ And you'll have a beautiful graph of your temperature readings!
 
 ![grafana - graph]({{ site.url }}/assets/images/2018-07-21/grafana-graph.png)
 
-You can leave questions and comments to [Reddit]().
+You can leave questions and comments to [Reddit](https://www.reddit.com/r/raspberry_pi/comments/90seko/influxdb_and_grafana_for_storing_and_showing/).
